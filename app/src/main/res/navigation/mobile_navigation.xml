@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_customer">
+
+    <fragment
+        android:id="@+id/nav_customer"
+        android:name="com.tops.tutorialapp.ui.product.ProductFragement"
+        android:label="Customer"
+        tools:layout="@layout/fragment_product" />
+
+    <fragment
+        android:id="@+id/nav_vendors"
+        android:name="com.tops.tutorialapp.ui.product.ProductFragement"
+        android:label="Vendors"
+        tools:layout="@layout/fragment_product" />
+
+    <fragment
+        android:id="@+id/nav_product"
+        android:name="com.tops.tutorialapp.ui.product.ProductFragement"
+        android:label="@string/product"
+        tools:layout="@layout/fragment_product" />
+</navigation>

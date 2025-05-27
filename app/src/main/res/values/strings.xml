@@ -29,4 +29,6 @@
     <string name="trans">Trans</string>
     <string name="accept_all_terms_amp_conditons"><![CDATA[Accept All Terms & Conditons]]></string>
     <string name="submit">Submit</string>
+    <string name="customer">Customer</string>
+    <string name="vendors">Vendors</string>
 </resources>

@@ -7,14 +7,15 @@
         <item
             android:id="@+id/nav_vendors"
             android:icon="@android:drawable/ic_dialog_email"
-            android:title="Vendors" />
+            android:title="@string/vendors" />
         <item
             android:id="@+id/nav_customer"
             android:icon="@android:drawable/ic_delete"
-            android:title="Customer" />
+            android:title="@string/customer" />
         <item
             android:id="@+id/nav_product"
             android:icon="@android:drawable/ic_popup_disk_full"
-            android:title="@string/product" />
+            android:title="@string/product"
+            />
     </group>
 </menu>

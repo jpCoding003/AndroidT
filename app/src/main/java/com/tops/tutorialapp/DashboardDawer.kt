@@ -1,7 +1,13 @@
 package com.tops.tutorialapp
 
+import android.app.Application
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.window.SplashScreen
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -11,6 +17,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.MenuProvider
+import androidx.lifecycle.Lifecycle
+import com.tops.tutorialapp.Fragments.LoginFragment
 import com.tops.tutorialapp.databinding.ActivityDashboardDawerBinding
 
 class DashboardDawer : AppCompatActivity() {
@@ -43,12 +52,31 @@ class DashboardDawer : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-    }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.dashboard_dawer, menu)
-        return true
+        addMenuProvider(object: MenuProvider{
+            override fun onCreateMenu(
+                menu: Menu,
+                menuInflater: MenuInflater
+            ) {
+                menu.clear()
+                menuInflater.inflate(R.menu.dashboard_dawer, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+
+                if (menuItem.itemId == R.id.action_logout) {
+                    val sharePref= getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE) ?: return false
+                    with(sharePref.edit()) {
+                        putBoolean(IS_Login, false)
+                        apply()
+                    }
+                    val intent = Intent(applicationContext, SplashScreenActivity::class.java)
+                    startActivity(intent)
+                    return true
+                }
+                return false
+            }
+        },this, Lifecycle.State.RESUMED)
     }
 
     override fun onSupportNavigateUp(): Boolean {

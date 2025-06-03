@@ -40,6 +40,7 @@ private lateinit var binding : FragmentProductBinding
         val menuHost: MenuHost= requireActivity()
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menu.clear()
                 menuInflater.inflate(R.menu.dashboard_dawer, menu)
             }
 

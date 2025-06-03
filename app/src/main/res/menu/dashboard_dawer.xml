@@ -7,5 +7,11 @@
         android:orderInCategory="100"
         android:title="logout"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/action_add"
+        android:orderInCategory="100"
+        android:title="Add"
+        android:icon="@android:drawable/ic_menu_add"
+        app:showAsAction="never" />
 
 </menu>

@@ -14,6 +14,7 @@ import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import com.tops.tutorialapp.Fragments.LoginFragment
 import com.tops.tutorialapp.databinding.ActivityMainBinding
+var IS_Login = "IS_LOGIN"
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,10 +30,10 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            add<LoginFragment>(R.id.fragmentContainerView)
-        }
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                add<LoginFragment>(R.id.fragmentContainerView)
+            }
 
     }
     }

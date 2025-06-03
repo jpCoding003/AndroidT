@@ -9,7 +9,6 @@ import com.tops.tutorialapp.R
 
 class NewProductFragment : Fragment() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

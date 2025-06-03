@@ -1,5 +1,6 @@
 package com.tops.tutorialapp
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -26,10 +27,21 @@ class SplashScreenActivity: AppCompatActivity() {
 //            finish()
 //        }, 5000)
 
+
+        val sharedPref = getSharedPreferences(
+            getString(R.string.app_name), Context.MODE_PRIVATE)
+        val islogin = sharedPref?.getBoolean(IS_Login, false)
+
         Handler().postDelayed({
+        if (islogin==true){
+            val intent = Intent(this, DashboardDawer::class.java)
+            startActivity(intent)
+            finish()
+        }else {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        },5000)
+        }
+        },3000)
     }
 }

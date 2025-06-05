@@ -36,9 +36,23 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    configurations.all {
+        resolutionStrategy {
+            force("org.jetbrains:annotations:23.0.0")
+            exclude(group = "com.intellij", module = "annotations")
+        }
+    }
 }
 
 dependencies {
+
+    val room_version = "2.7.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-compiler:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+
+    implementation(libs.org.jetbrains.annotations)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.fragment)
@@ -54,4 +68,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation("org.jetbrains:annotations:23.0.0")
+
 }
